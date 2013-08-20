@@ -144,13 +144,13 @@ public class JnsIMEScreenView extends View implements Runnable {
 				bop.resId = 0xFF;
 				break;
 			case KeyEvent.KEYCODE_VOLUME_DOWN:
-				bop.resId = BUTTON_V_DOWN;
+				bop.resId = 0xFF;//BUTTON_V_DOWN;
 				break;
 			case KeyEvent.KEYCODE_VOLUME_UP:
-				bop.resId = BUTTON_V_UP;
+				bop.resId = 0xFF;//BUTTON_V_UP;
 				break;
 			case KeyEvent.KEYCODE_VOLUME_MUTE:
-				bop.resId = BUTTON_MUTE;
+				bop.resId = 0xFF;//BUTTON_MUTE;
 				break;
 			case KeyEvent.KEYCODE_2:
 				bop.resId = 0xFF;
@@ -351,13 +351,13 @@ public class JnsIMEScreenView extends View implements Runnable {
 				bop.resId = 0xFF;
 				break;
 			case KeyEvent.KEYCODE_MEDIA_NEXT:
-				bop.resId = BUTTON_M_NEXT;
+				bop.resId = 0xFF;//BUTTON_M_NEXT;
 				break;
 			case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE:
-				bop.resId = BUTTON_M_PAUSE;
+				bop.resId = 0XFF;//BUTTON_M_PAUSE;
 				break;
 			case KeyEvent.KEYCODE_MEDIA_PREVIOUS:
-				bop.resId = BUTTON_M_PREVIEW;
+				bop.resId = 0XFF;//BUTTON_M_PREVIEW;
 				break;
 			case KeyEvent.KEYCODE_MEDIA_REWIND:
 				bop.resId = 0xFF;

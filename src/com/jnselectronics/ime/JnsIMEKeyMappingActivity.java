@@ -79,8 +79,8 @@ public class JnsIMEKeyMappingActivity extends Activity implements OnClickListene
 			controller = this.getResources().getDrawable(R.drawable.key_mapping_g);
 		else
 			controller = this.getResources().getDrawable(R.drawable.key_mapping_bg);
-		controller = DrawableUtil.zoomDrawable(controller, (int)(dm.widthPixels * dm.density), 
-				(int)((controller.getIntrinsicHeight() * dm.widthPixels / controller.getIntrinsicWidth())*dm.density));
+	//	controller = DrawableUtil.zoomDrawable(controller, (int)(dm.widthPixels * 1.25), 
+	//			(int)((controller.getIntrinsicHeight() * dm.widthPixels / controller.getIntrinsicWidth())*1.25));
 		/*
 		 BitmapFactory.Options options=new BitmapFactory.Options(); 
 		 options.inJustDecodeBounds = false; 

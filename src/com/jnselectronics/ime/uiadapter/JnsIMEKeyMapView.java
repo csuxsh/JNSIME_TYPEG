@@ -9,6 +9,7 @@ import com.jnselectronics.im.hardware.JoyStickTypeF;
 import com.jnselectronics.im.hardware.KeyBoardTypeG;
 import com.jnselectronics.ime.R;
 import com.jnselectronics.ime.bean.JnsIMEKeyMap;
+import com.jnselectronics.ime.bean.JnsIMEKeyTypeGMap;
 import com.jnselectronics.ime.bean.JnsIMETypeFKeyMap;
 import com.jnselectronics.ime.util.DrawableUtil;
 
@@ -95,6 +96,8 @@ public class JnsIMEKeyMapView extends ImageView {
 		{
 			case JnsIMEKeyMapView.JoyStickTypeFID:
 				return  new JnsIMETypeFKeyMap();
+			case KeyBoardTypeGID:
+				return new JnsIMEKeyTypeGMap();
 				
 		}
 		return null;
@@ -143,7 +146,7 @@ public class JnsIMEKeyMapView extends ImageView {
 		ScreeanHeight = dm.heightPixels;
 		buttonWidth = ScreeanWidth * 19 / 20 /16;
 		buttonHeight = ScreeanWidth / 32;
-		startY=  ScreeanHeight/30 + buttonHeight *3 -ScreeanHeight / 150;  //* 8/7;
+		startY=  ScreeanHeight/30;  //* 8/7;
 		startX = ScreeanWidth / 34;
 	}
 	private void loadRes()
@@ -198,7 +201,10 @@ public class JnsIMEKeyMapView extends ImageView {
 				touchedCol = -1;
 				return null;
 			}
-			keymap = new JnsIMETypeFKeyMap();
+			if(this.hardwareId == this.JoyStickTypeFID)
+				keymap = new JnsIMETypeFKeyMap();
+			else if (this.hardwareId == this.KeyBoardTypeGID)
+				keymap = new JnsIMEKeyTypeGMap();
 			keymap.setLable(lable);
 			keymap.setGamPadIndex(gamePadButoonIndex[touchedCol][touchedRow]);
 			postInvalidate();

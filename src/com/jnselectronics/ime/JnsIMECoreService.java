@@ -76,6 +76,7 @@ public class JnsIMECoreService extends Service {
 	static List<Activity> activitys = new ArrayList<Activity>();
 	private final static String mappingFiles[] =
 		{
+		/*
 			"com.angrymobgames.muffinknight",
 			"com.bringmore.huomieqiangshouer",
 			"com.dotemu.rtype",
@@ -107,7 +108,7 @@ public class JnsIMECoreService extends Service {
 			"net.hexage.evac.hd",
 			"net.hexage.radiant.hd",
 			"net.hexage.robotek.hd"
-			
+			*/
 		};
 
 	@Override
@@ -155,7 +156,7 @@ public class JnsIMECoreService extends Service {
 		initialed = true;
 		//	JnsIMERoot.setContext(this);
 		JnsEnvInit.mContext = this;
-		//JnsEnvInit.root();
+		JnsEnvInit.root();
 		/*
 		while(!JnsEnvInit.root())
 		{
@@ -269,7 +270,7 @@ public class JnsIMECoreService extends Service {
 	{
 		SharedPreferences sp = this.getApplicationContext(). getSharedPreferences("init", Context.MODE_PRIVATE); 
 		SharedPreferences.Editor  edit = sp.edit();
-		int i = sp.getInt("boolean", 0);
+		int i = 1;//sp.getInt("boolean", 0);
 		if(i == 0)
 		{
 			CopyMappings();

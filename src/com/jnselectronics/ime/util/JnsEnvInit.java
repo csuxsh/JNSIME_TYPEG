@@ -80,13 +80,14 @@ public class JnsEnvInit {
 		public void run()
 		{
 			String line="";
-			InputStreamReader peis = new InputStreamReader(serverProcess.getErrorStream());
+		//	InputStreamReader peis = new InputStreamReader(serverProcess.getErrorStream());
+			InputStreamReader peis = new InputStreamReader(process.getInputStream());
 			BufferedReader ber = new BufferedReader(peis);
-			Log.d(TAG,"star error output");
+			Log.d(TAG,"star msg output");
 			try {
 				while((line = ber.readLine())!=null)
 				{
-					Log.d(TAG, "erro  "+line);
+					Log.d(TAG, "msg  "+line);
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -108,8 +109,8 @@ public class JnsEnvInit {
 	public static boolean root()
 	{
 		try {
-			/*
-			process = Runtime.getRuntime().exec("su");
+			
+			process = Runtime.getRuntime().exec("getevent");
 			if(process ==null)
 				return false;
 			if(process.getOutputStream()==null)
@@ -119,11 +120,13 @@ public class JnsEnvInit {
 			}
 			dos = new DataOutputStream(process.getOutputStream());
 			dis = new DataInputStream(process.getInputStream());
-
+			
 			ErrorOutThread errothread = ErrorOutThread.getErrorOutThread();
+			ServerErrorOutThread serrothread = ServerErrorOutThread.getErrorOutThread();
 			try
 			{
 				errothread.start();
+				serrothread.start();
 			}
 			catch(Exception e)
 			{
@@ -135,7 +138,7 @@ public class JnsEnvInit {
 				//return false;
 			}
 			rooted = true;
-			*/
+			/*
 			new Thread(new Runnable()
 			{
 
@@ -158,6 +161,7 @@ public class JnsEnvInit {
 				}
 
 			}).start();
+			*/
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

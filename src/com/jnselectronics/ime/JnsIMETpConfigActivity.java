@@ -256,6 +256,7 @@ public class JnsIMETpConfigActivity extends Activity implements OnTouchListener,
 			JnsIMECoreService.aph.Insert(JnsIMEInputMethodService.validAppName, "true");
 			saved = true;
 			//JnsIMETpConfigActivity.this.finish();
+			break;
 		case R.id.exit:
 			if(!saved)
 				(new AlertDialog.Builder(this).setMessage(getString(R.string.save_notice) ).setPositiveButton("save",
@@ -407,13 +408,13 @@ public class JnsIMETpConfigActivity extends Activity implements OnTouchListener,
 			bop.resId = 0xFF;
 			break;
 		case KeyEvent.KEYCODE_VOLUME_DOWN:
-			bop.resId = JnsIMEScreenView.BUTTON_V_DOWN;
+			bop.resId = 0xFF;//JnsIMEScreenView.BUTTON_V_DOWN;
 			break;
 		case KeyEvent.KEYCODE_VOLUME_UP:
-			bop.resId = JnsIMEScreenView.BUTTON_V_UP;
+			bop.resId = 0xFF;//JnsIMEScreenView.BUTTON_V_UP;
 			break;
 		case KeyEvent.KEYCODE_VOLUME_MUTE:
-			bop.resId = JnsIMEScreenView.BUTTON_MUTE;
+			bop.resId = 0XFF;//JnsIMEScreenView.BUTTON_MUTE;
 			break;
 		case KeyEvent.KEYCODE_2:
 			bop.resId = 0xFF;
@@ -614,13 +615,13 @@ public class JnsIMETpConfigActivity extends Activity implements OnTouchListener,
 			bop.resId = 0xFF;
 			break;
 		case KeyEvent.KEYCODE_MEDIA_NEXT:
-			bop.resId = JnsIMEScreenView.BUTTON_M_NEXT;
+			bop.resId = 0xFF;//JnsIMEScreenView.BUTTON_M_NEXT;
 			break;
 		case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE:
-			bop.resId = JnsIMEScreenView.BUTTON_M_PAUSE;
+			bop.resId = 0xFF;//JnsIMEScreenView.BUTTON_M_PAUSE;
 			break;
 		case KeyEvent.KEYCODE_MEDIA_PREVIOUS:
-			bop.resId = JnsIMEScreenView.BUTTON_M_PREVIEW;
+			bop.resId = 0xFF;//JnsIMEScreenView.BUTTON_M_PREVIEW;
 			break;
 		case KeyEvent.KEYCODE_MEDIA_REWIND:
 			bop.resId = 0xFF;
@@ -684,6 +685,9 @@ public class JnsIMETpConfigActivity extends Activity implements OnTouchListener,
 			break;
 		case KeyEvent.KEYCODE_TAB:
 			bop.resId = 0xFF;
+			break;
+		case KeyEvent.KEYCODE_ENTER:
+			bop.resId = JnsIMEScreenView.BUTTON_G_ENTER;
 			break;
 			/*	
 		case BlueoceanCore.KEYCODE_BUTTON_1:

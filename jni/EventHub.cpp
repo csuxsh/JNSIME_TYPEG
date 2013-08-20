@@ -15,11 +15,19 @@
 
 
 #define test_bit(bit, array)    (array[bit/8] & (1<<(bit%8)))
-
+#define VID 0x05ac
+#define PID 0x3212
 /* this macro computes the number of bytes needed to represent a bit array of the specified size */
 #define sizeof_bit_array(bits)  ((bits + 7) / 8)
 
+#define ID_NUM 2
 #define DEVICE_NUM 4
+
+const int deviceID[ID_NUM] =
+{
+	0x05ac3212, // Bordcaom BT
+	0xa7253324  //Bordcaom 2.4G
+};
 const char* deviceName[DEVICE_NUM] =
 {
 		"JNS JNS 2.4G Wireless Device",
@@ -175,7 +183,6 @@ EventHub::Device::Device(int dfd, int32_t did, char* dpath, struct InputDeviceId
 							|| (de->d_name[1] == '.' && de->d_name[2] == '\0')))
 				continue;
 			strcpy(filename, de->d_name);
-			LOGE("[%s][%d] ==> device name %s", __FUNCTION__, __LINE__, devname);
 			openDeviceLocked(devname);
 		}
 		closedir(dir);
@@ -198,6 +205,7 @@ EventHub::Device::Device(int dfd, int32_t did, char* dpath, struct InputDeviceId
 		int deviceValid = 0;
 		char buffer[256];
 		int i=0;
+		int j = 0;
 
 		//String8 string(name);
 #if DEBUG_SWITCH
@@ -241,36 +249,7 @@ EventHub::Device::Device(int dfd, int32_t did, char* dpath, struct InputDeviceId
 				break;
 			}
 		}
-		if(i == DEVICE_NUM)
-		{
-			close(fd);
-			LOGE("[%s][%d] ==> ignoring event id %s driver %s", __FUNCTION__,
-					__LINE__, devicePath, identifier.name);
-			return -1;
-		}
 
-#ifdef BUILD_NDK
-#if 0
-		if (mExcludedDevices != NULL) {
-			for (size_t i = 0; i < sizeof(mExcludedDevices) / sizeof(struct ExcludeDevices); i ++) {
-				if (0 == strcmp(identifier.name, mExcludedDevices.name)) {
-					close(fd);
-					return -1;
-				}
-			}
-		}
-#endif
-#else
-		for (size_t i = 0; i < mExcludedDevices.size(); i++) {
-			const String8 &item = mExcludedDevices.itemAt(i);
-			if (identifier.name == item) {
-				LOGE("[%s][%d] ==> ignoring event id %s driver %s", __FUNCTION__,
-						__LINE__, devicePath, item.string());
-				close(fd);
-				return -1;
-			}
-		}
-#endif
 		// get device driver version
 		int driverVersion;
 		if (ioctl(fd, EVIOCGVERSION, &driverVersion)) {
@@ -281,7 +260,7 @@ EventHub::Device::Device(int dfd, int32_t did, char* dpath, struct InputDeviceId
 		}
 
 		// get device identifier
-		struct input_id inputId;
+		struct input_id inputId = {0};
 		if (ioctl(fd, EVIOCGID, &inputId)) {
 			LOGE(
 					"[%s][%d] ==> could not get device input id for %s errno = %d (%s)",
@@ -294,6 +273,32 @@ EventHub::Device::Device(int dfd, int32_t did, char* dpath, struct InputDeviceId
 		identifier.product = inputId.product;
 		identifier.vendor = inputId.vendor;
 		identifier.version = inputId.version;
+
+		if(i == DEVICE_NUM)
+		{
+			LOGE("[%s][%d] ==> name= %s pid= %d, vid = %d", __FUNCTION__,
+									__LINE__, identifier.name, identifier.product,identifier.vendor);
+
+
+			for(j = 0;  j < ID_NUM; j++)
+			{
+
+				LOGE("[%s][%d] ==> name= %s vpid= %d, did = %d", __FUNCTION__,
+																					__LINE__, identifier.name, ((identifier.vendor << 16) | identifier.product),deviceID[j]);
+				if(((identifier.vendor << 16) | identifier.product) == deviceID[j])
+				{
+
+						break;
+				}
+			}
+			if(j == ID_NUM)
+			{
+				close(fd);
+				LOGE("[%s][%d] ==> ignoring event id %s driver %s", __FUNCTION__,
+						__LINE__, devicePath, identifier.name);
+				return -1;
+			}
+		}
 
 		// get device physical location
 		if (ioctl(fd, EVIOCGPHYS(sizeof(buffer) - 1), &buffer) < 1) {

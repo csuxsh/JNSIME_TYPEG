@@ -48,17 +48,17 @@ public class KeyBoardTypeG {
 
 
 
-	public final static int BUTTON_UP = 1;
-	public final static int BUTTON_ENTER = 14;
-	public final static int BUTTON_LEFT = 17;
-	public final static int BUTTON_V_UP = 30;
-	public final static int BUTTON_RIGHT = 33;
-	public final static int BUTTON_M_PREVIOUS = 46;
-	public final static int BUTTON_DOWN = 49;
-	public final static int BUTTON_V_DOWN = 62;
-	public final static int BUTTON_PAUSE = 79;
-	public final static int BUTTON_M_NEXT= 122;
-	public final static int BUTTON_MUTE = 123;
+	public final static int BUTTON_UP = 34;
+	public final static int BUTTON_ENTER = 45;
+	public final static int BUTTON_LEFT = 50;
+	//public final static int BUTTON_V_UP = 30;
+	public final static int BUTTON_RIGHT = 66;
+	//public final static int BUTTON_M_PREVIOUS = 46;
+	public final static int BUTTON_DOWN = 82;
+	//public final static int BUTTON_V_DOWN = 62;
+	//public final static int BUTTON_PAUSE = 79;
+	//public final static int BUTTON_M_NEXT= 122;
+	// final static int BUTTON_MUTE = 123;
 
 
 
@@ -98,25 +98,27 @@ public class KeyBoardTypeG {
 
 	public final static int gamePadButoonScanCode[][] = 
 		{
-		{0, BUTTON_UP_SCANCODE,     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  BUTTON_ENTER_SCANCODE,  0},
-		{0, BUTTON_LEFT_SCANCODE,   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  BUTTON_V_UP_SCANCODE,  0},
-		{0, BUTTON_RIGHT_SCANCODE,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  BUTTON_M_PREVIOUS_SCANCODE, 0},
-		{0, BUTTON_DOWN_SCANCODE,	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  BUTTON_V_DOWN_SCANCODE,0},
-		{0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, BUTTON_PAUSE_SCANCODE,  0},
-		{0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  BUTTON_MUTE_SCANCODE,  0},
-		{0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  BUTTON_M_NEXT_SCANCODE,  0},
 		{0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
+		{0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
+		{0, 0, BUTTON_UP_SCANCODE,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  BUTTON_ENTER_SCANCODE,  0,  0},
+		{0, 0, BUTTON_LEFT_SCANCODE, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
+		{0, 0, BUTTON_RIGHT_SCANCODE,   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 0},
+		{0, 0, BUTTON_DOWN_SCANCODE,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,0},
+		{0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 0,  0},
+		{0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
+		
 		};
 	public final static int gamePadButoonIndex[][] = 
 		{
-		{0,  BUTTON_UP,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 0,  BUTTON_ENTER,  0},
-		{0,  BUTTON_LEFT,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, BUTTON_V_UP,  0},
-		{0,  BUTTON_RIGHT,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, BUTTON_M_PREVIOUS, 0},
-		{0,  BUTTON_DOWN,	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, BUTTON_V_DOWN, 0},
-		{0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, BUTTON_PAUSE,  0},
-		{0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  BUTTON_MUTE,  0},
-		{0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  BUTTON_M_NEXT,  0},
-		{0,  0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
+		{0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
+		{0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
+		{0, 0, BUTTON_UP,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  BUTTON_ENTER,  0,  0},
+		{0, 0, BUTTON_LEFT, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
+		{0, 0, BUTTON_RIGHT,   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 0},
+		{0, 0, BUTTON_DOWN,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,0},
+		{0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 0,  0},
+		{0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
+		
 		};
 	/*
 	public final static String gamePadButoonLable[][] = 
@@ -132,14 +134,15 @@ public class KeyBoardTypeG {
 	};*/
 	public final static String gamePadButoonLable[][] = 
 		{
-		{null,  "",  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null, null,  "",  null},
-		{null,  "",  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null, "",  null},
-		{null,  "",  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  "", null},
-		{null,  "",	null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null, "", null},
-		{null,  null, null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null, "",  null},
-		{null, null, null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null, "",  null},
-		{null,  null ,null,null,  null,  null,  null,  null,  null,  null,  null,  null,   null,  null, "", null},
-		{null,   null,null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,null},
+		{null,  null, null, null,  null,  null,  null,  null,  null,  null,  null,  null,   null,  null, null, null},
+		{null,  null, null, null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,null},
+		{null,  null,  "",  null,  null,  null,  null,  null,  null,  null,  null,  null,  null, "",  null,  null},
+		{null,  null,  "",  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null, null,  null},
+		{null,  null,  "",  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null, null, null},
+		{null,  null,  "",  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null, null, null},
+		{null,  null, null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,null,  null},
+		{null, null, null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null, null,  null},
+		
 		};
 
 }
